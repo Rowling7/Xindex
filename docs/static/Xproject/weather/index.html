@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./weatherWidget.css" />
+	<script src="./weatherWidget.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+
+<body>
+	<!--基于flex的小组件-->
+	<section class="widgetline" style="padding-top: 250px;">
+		<div id="weatherWidget" class="widget">
+			<div id="weatherHead">
+				<div id="weatherTemp"></div>
+				<div class="temperature-extremes">
+					<div id="weatherTempMax" title="最高温度"></div>
+					<div id="weatherTempMin" title="最低温度"></div>
+				</div>
+				<img id="weatherimg" />
+			</div>
+			<!--筛选框和输入-->
+			<div id="weatherInput">
+				<select id="citySelect" onchange="getWeather()">
+					<option value="Weihai">威海</option>
+					<option value="Wuhan">武汉</option>
+					<option value="Guiyang">贵阳</option>
+					<option value="Beijing">北京</option>
+					<option value="Shanghai">上海</option>
+					<option value="Guangzhou">广州</option>
+					<option value="Shenzhen">深圳</option>
+				</select>
+
+				<input type="text" id="cityInput" list="citySuggestions" placeholder="输入中文城市名" onchange="getWeather()">
+				<datalist id="citySuggestions">
+					<!-- 选项将由 JavaScript 动态填充 -->
+				</datalist>
+
+				<button onclick="getWeather()" id="btn">查询</button>
+			</div>
+			<!--地区和概述-->
+			<div id="mainbody">
+				<div id="weatherInfoRow1">
+					<div id="site"></div>
+					<div id="weatherResult"></div>
+				</div>
+			</div>
+			<!--详情-->
+			<div id="detailedbody">
+				<div class="weather-card">
+					<!-- 正面内容 -->
+					<div class="card-face front">
+						<div class="detail-row">
+							<div class="detail-label">体感温度</div>
+							<div class="detail-value" id="feelsLike"></div>
+						</div>
+						<div class="detail-row">
+							<div class="detail-label">风速</div>
+							<div class="detail-value" id="windSpeed"></div>
+						</div>
+						<div class="detail-row">
+							<div class="detail-label">风向</div>
+							<div class="detail-value" id="windDeg"></div>
+						</div>
+					</div>
+
+					<!-- 背面内容 -->
+					<div class="card-face back">
+						<div class="detail-row">
+							<div class="detail-label">湿度</div>
+							<div class="detail-value" id="weatherHumi"></div>
+						</div>
+						<div class="detail-row">
+							<div class="detail-label">大气压</div>
+							<div class="detail-value" id="weatherPress"></div>
+						</div>
+						<div class="detail-row">
+							<div class="detail-label">云量</div>
+							<div class="detail-value" id="clouds"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+
+</html>

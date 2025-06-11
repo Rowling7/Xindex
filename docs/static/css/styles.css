@@ -1,0 +1,155 @@
+html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    /* 隐藏滚动条 */
+}
+
+/* 针对不同浏览器的滚动条隐藏实现 */
+::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari and Opera */
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    overflow: -moz-scrollbars-none;
+    /* Older Firefox versions */
+    /*background-Image : url(https://bing.ee123.net/img/);*/
+}
+
+.btn-search {
+    width: 40px;
+    position: relative;
+    /* 为子元素绝对定位提供参照 */
+    padding: 0 !important;
+    /* 消除默认内边距 */
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+#searchContainer {
+    height: 40px !important;
+    min-height: 40px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+/* 搜索图标尺寸控制 */
+.btn-search img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    /* 保持图标比例 */
+}
+#linkContainer{
+    margin: 6px auto !important;
+}
+/* 确保内容区域可以滚动 */
+.container {
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.tab-content>.active {
+    display: block;
+    width: 100%;
+}
+
+/* 外层A标签布局 */
+a.col {
+    padding: 12px;
+    /* 控制外层间距 */
+    display: block;
+}
+
+/* 卡片容器 */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    max-width: calc(100px * 10 + 1rem * 9);
+    /* 10列x100px + 9个间隙x1rem */
+    margin: 0 auto;
+}
+
+/* 设置卡片固定尺寸 */
+.grid-layout>a {
+    width: 100px;
+    height: 100px;
+    display: block;
+}
+
+/* 调整卡片内部布局 */
+.card {
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* 平滑过渡动画 */
+    position: relative;
+    /* 防止布局偏移 */
+    z-index: 1;
+    /* 避免被其他元素遮挡 */
+    background-color: rgba(235, 241, 247, 0.801) !important;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    /* 上移 5px */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    /* 增强阴影效果 */
+}
+
+.card-img-container {
+    width: 60px;
+    height: 60px;
+    flex: 0 0 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.card-text-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 0;
+    color: #000;
+}
+
+.card-title {
+    font-size: 12px;
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.headerContainer {
+    background-color: transparent !important;
+}
+
+footer {
+    background-color: transparent !important;
+}
+
+#footerContainer{
+    margin-bottom: 6px !important;
+}

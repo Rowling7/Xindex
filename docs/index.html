@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="static/ico/favicon.ico" type="image/x-icon">
+  <title>YsongCao's Sitemap</title>
+  <link rel="stylesheet" href="static/css/bootstrap.css">
+  <script src="static/js/bootstrap.bundle.js" defer></script>
+  <link rel="stylesheet" href="static/css/styles.css">
+  <script src="static/js/js.js" defer></script>
+  <script src="static/js/loadData.js" defer></script>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  <div class="container-fluid p-3 pb-0" id="headerContainer">
+    <div class="d-flex flex-wrap justify-content-between align-items-center">
+      <!-- 站点标题 -->
+      <h1 class="navbar-brand mb-0">
+        <a class="text-decoration-none fs-3" href="index.html">Sitemap</a>
+      </h1>
+    </div>
+  </div>
+  <!-- 搜索部分 -->
+  <div class="container d-flex align-items-center justify-content-center mt-0" id="searchContainer">
+    <div class="col-md-8">
+      <form id="searchForm" class="input-group">
+        <select class="form-select flex-grow-0 w-auto" id="engineSelect" aria-label="搜索引擎选择">
+          <option value="https://www.bing.com/search?q=">Bing</option>
+          <option value="https://www.baidu.com/s?wd=">Baidu</option>
+          <option value="hhttps://xiaoyi.huawei.com/?q=">XiaoYi</option>
+        </select>
+        <input type="text" class="form-control" placeholder="Type Something To Search ......" aria-label="搜索内容" name="q"
+          required>
+        <button type="submit" class="btn btn-primary btn-search">
+          <img src="static/ico/search.png" alt="搜索图标">
+          <span class="visually-hidden">搜索</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- 内容区域 -->
+  <div class="container mt-4 flex-grow-1" id="linkContainer">
+    <!-- 改为tab-content -->
+    <div id="content-container" class="tab-content row g-4 row-cols-2 row-cols-md-3 row-cols-lg-4">
+      <!-- 动态生成tab-pane -->
+    </div>
+  </div>
+  <!-- 自适应底栏 -->
+  <footer class="mt-auto sticky-bottom" id="footerContainer">
+    <div class="container">
+      <nav class="nav nav-pills justify-content-center" id="category-nav">
+        <!-- 导航项由JS生成 -->
+      </nav>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>
