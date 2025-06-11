@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="icon" href="static/ico/favicon.ico" type="image/x-icon">
-  <title>YsongCao's Sitemap</title>
+  <title>Pitahaya Guide</title>
   <link rel="stylesheet" href="static/css/bootstrap.css">
   <script src="static/js/bootstrap.bundle.js" defer></script>
   <link rel="stylesheet" href="static/css/styles.css">
@@ -13,24 +13,77 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-  <div class="container-fluid p-3 pb-0" id="headerContainer">
-    <div class="d-flex flex-wrap justify-content-between align-items-center">
-      <!-- 站点标题 -->
-      <h1 class="navbar-brand mb-0">
-        <a class="text-decoration-none fs-3" href="index.html">Sitemap</a>
-      </h1>
+  <!-- ================= 导航栏区域 ================= -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light py-2" id="headerContainer">
+    <div class="container-fluid">
+      <!-- 品牌Logo和标题 -->
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="static/ico/favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="Logo"
+          id="image4Gif">
+        <span class="site-title ms-2" id="siteTitle"></span><!--Pitahaya-->
+      </a>
+
+      <!-- 右侧功能区域 -->
+      <div class="d-flex align-items-center">
+        <!-- 小搜索框 -->
+        <div class="input-group me-3" id="linkSearchContainer" style="width: 200px;">
+          <input type="text" class="form-control form-control-sm" id="inpt_search" placeholder="linkSearch">
+        </div>
+
+        <!-- 功能按钮组 -->
+        <div class="btn-group me-2">
+          <!-- 切换页面按钮 -->
+          <a href="Xindex.html" class="btn btn-sm btn-outline-secondary" id="changePage">
+            <img src="static/ico/change.png" width="16" alt="切换页面">
+          </a>
+          <!-- 切换背景按钮 -->
+          <a href="changeBG.html" class="btn btn-sm btn-outline-secondary" id="changeBG">
+            <img src="static/ico/changeBG.png" width="16" alt="切换背景">
+          </a>
+          <!-- 简洁模式按钮 -->
+          <button class="btn btn-sm btn-outline-secondary" id="lightMod">
+            <img src="static/ico/lightMod.png" width="16" alt="简洁模式">
+          </button>
+        </div>
+
+        <!-- 设置下拉菜单 -->
+        <div class="dropdown">
+          <button class="btn btn-sm btn-outline-secondary dropdown-toggle" id="settingsBtn" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img src="static/ico/setting.png" width="16" alt="设置">
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" id="settingsDropdown">
+            <!-- 动态生成的下拉选项 -->
+            <li><a class="dropdown-item" href="#">设置1</a></li>
+            <li><a class="dropdown-item" href="#">设置2</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#" onclick="toggleTheme()">切换暗黑模式</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-  <!-- 搜索部分 -->
-  <div class="container d-flex align-items-center justify-content-center mt-0" id="searchContainer">
+  </nav>
+
+  <!-- ================= 主搜索区域 ================= -->
+  <div class="container d-flex align-items-center justify-content-center mt-0" id="webSearchContainer">
     <div class="col-md-8">
       <form id="searchForm" class="input-group">
         <select class="form-select flex-grow-0 w-auto" id="engineSelect" aria-label="搜索引擎选择">
           <option value="https://www.bing.com/search?q=">Bing</option>
-          <option value="https://www.baidu.com/s?wd=">Baidu</option>
-          <option value="hhttps://xiaoyi.huawei.com/?q=">XiaoYi</option>
+          <option value="https://www.baidu.com/s?wd=">百度</option>
+          <option value="https://xiaoyi.huawei.com/?q=">小艺</option>
+          <option value="https://www.sogou.com/web?ie={inputEncoding}&query=">搜狗</option>
+          <option value="https://www.so.com/s?ie={inputEncoding}&q=">360</option>
+          <option value="http://www.zhihu.com/search?type=content&q=">知乎</option>
+          <option value="https://s.weibo.com/weibo?q=">微博</option>
+          <option value="https://www.xiaohongshu.com/search_result?keyword=">小红书</option>
+          <option value="https://www.douban.com/search?source=suggest&q=">豆瓣</option>
+          <option value="https://www.douyin.com/root/search/">抖音</option>
+          <option value="https://search.bilibili.com/video?keyword=">B站</option>
         </select>
-        <input type="text" class="form-control" placeholder="Type Something To Search ......" aria-label="搜索内容" name="q"
+        <input type="text" class="form-control" placeholder="Type Something To Search ..." aria-label="搜索内容" name="q"
           required>
         <button type="submit" class="btn btn-primary btn-search">
           <img src="static/ico/search.png" alt="搜索图标">
@@ -40,15 +93,57 @@
     </div>
   </div>
 
-
-  <!-- 内容区域 -->
-  <div class="container mt-4 flex-grow-1" id="linkContainer">
-    <!-- 改为tab-content -->
-    <div id="content-container" class="tab-content row g-4 row-cols-2 row-cols-md-3 row-cols-lg-4">
-      <!-- 动态生成tab-pane -->
-    </div>
+  <!-- ================= 主内容区域 ================= -->
+  <!-- ================= 视图切换导航 ================= -->
+  <div class="container mt-1">
+    <ul class="nav nav-tabs justify-content-center" id="viewTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="widget-tab" data-bs-toggle="tab" data-bs-target="#widgetContainer"
+          type="button" role="tab">
+          组件视图
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="link-tab" data-bs-toggle="tab" data-bs-target="#linkContainer" type="button"
+          role="tab">
+          链接视图
+        </button>
+      </li>
+    </ul>
   </div>
-  <!-- 自适应底栏 -->
+
+  <!-- ================= 修改后的主内容区域 ================= -->
+  <div class="container mt-2 tab-content" id="mainContent">
+    <!-- 组件视图 -->
+    <div class="tab-pane fade show active row g-4 row-cols-2 row-cols-md-3 row-cols-lg-4" id="widgetContainer"
+      role="tabpanel">
+      <!-- 时钟组件 -->
+      <div class="col">
+        <div class="card widget-card h-100">
+          <div class="card-body text-center" id="clockContainer"></div>
+        </div>
+      </div>
+      <!-- 天气组件 -->
+      <div class="col">
+        <div class="card widget-card h-100">
+          <div class="card-body" id="weatherContainer"></div>
+        </div>
+      </div>
+      <!-- 其他组件... -->
+    </div>
+
+
+    <!-- 现有链接视图 (保持原样) -->
+    <div class="tab-pane fade" id="linkContainer" role="tabpanel">
+      <div id="link-container" class="tab-content row g-4 row-cols-2 row-cols-md-3 row-cols-lg-4">
+        <!-- 动态生成tab-pane -->
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- ================= 底栏区域 ================= -->
   <footer class="mt-auto sticky-bottom" id="footerContainer">
     <div class="container">
       <nav class="nav nav-pills justify-content-center" id="category-nav">
@@ -56,7 +151,6 @@
       </nav>
     </div>
   </footer>
-
 
 </body>
 

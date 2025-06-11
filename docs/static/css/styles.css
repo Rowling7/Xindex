@@ -1,3 +1,35 @@
+:root {
+    /* 明亮模式颜色 */
+    --color-bg: #fff;
+    --color-card-bg: rgba(235, 241, 247, 0.89);
+    --color-text: #000000;
+    --color-shadow: rgba(0, 0, 0, 0.15);
+    --color-primary: #007bff;
+    --color-border: #dee2e6;
+
+    /* 导航栏/底栏 */
+    --color-nav-bg: transparent;
+    --color-nav-text: inherit;
+
+    /* 卡片悬停效果 */
+    --card-hover-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+
+    /* 组件相关 */
+    --widget-card-radius: 10px;
+}
+
+/* 暗黑模式颜色 */
+[data-theme="dark"] {
+    --color-bg: #121212;
+    --color-card-bg: rgba(30, 30, 30, 0.9);
+    --color-text: #e0e0e0;
+    --color-shadow: rgba(255, 255, 255, 0.05);
+    --color-primary: #6c757d;
+    --color-border: #444;
+
+    --card-hover-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.1);
+}
+
 html {
     height: 100%;
     margin: 0;
@@ -8,7 +40,6 @@ html {
 /* 针对不同浏览器的滚动条隐藏实现 */
 ::-webkit-scrollbar {
     display: none;
-    /* Chrome, Safari and Opera */
 }
 
 body {
@@ -16,14 +47,19 @@ body {
     margin: 0;
     overflow: hidden;
     -ms-overflow-style: none;
-    /* IE and Edge */
     scrollbar-width: none;
-    /* Firefox */
     overflow: -moz-scrollbars-none;
-    /* Older Firefox versions */
-    /*background-Image : url(https://bing.ee123.net/img/);*/
+    background-color: var(--color-bg);
+    color: var(--color-text);
 }
 
+/*web搜索*/
+#webSearchContainer {
+    height: 40px !important;
+    min-height: 40px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
 .btn-search {
     width: 40px;
     position: relative;
@@ -34,24 +70,37 @@ body {
     align-items: center;
     justify-content: center;
 }
-
-#searchContainer {
-    height: 40px !important;
-    min-height: 40px;
-    box-sizing: border-box;
-    flex-shrink: 0;
-}
-
-/* 搜索图标尺寸控制 */
+/* 搜索图标尺寸 */
 .btn-search img {
     width: 20px;
     height: 20px;
     object-fit: contain;
-    /* 保持图标比例 */
 }
-#linkContainer{
+
+/*主内容区域*/
+#mainContent {
+    width: 80vw; 
+    max-width: none; /* 移除Bootstrap默认的最大宽度限制 */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*组件*/
+.widget-card {
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.widget-card:hover {
+    transform: translateY(-5px);
+}
+
+#linkContainer {
     margin: 6px auto !important;
 }
+
 /* 确保内容区域可以滚动 */
 .container {
     max-height: 100vh;
@@ -101,13 +150,14 @@ a.col {
     /* 防止布局偏移 */
     z-index: 1;
     /* 避免被其他元素遮挡 */
-    background-color: rgba(235, 241, 247, 0.801) !important;
+    background-color: var(--color-card-bg);
+    border-color: var(--color-border);
 }
 
 .card:hover {
     transform: translateY(-5px);
     /* 上移 5px */
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    box-shadow: var(--card-hover-shadow);
     /* 增强阴影效果 */
 }
 
@@ -142,14 +192,17 @@ a.col {
     -webkit-box-orient: vertical;
 }
 
-.headerContainer {
-    background-color: transparent !important;
-}
-
+.headerContainer,
 footer {
-    background-color: transparent !important;
+    background-color: var(--color-nav-bg);
+    color: var(--color-nav-text);
 }
 
-#footerContainer{
+#footerContainer {
     margin-bottom: 6px !important;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
 }

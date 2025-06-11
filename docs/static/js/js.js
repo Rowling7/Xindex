@@ -1,3 +1,25 @@
+// 检测系统颜色偏好
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+// 从本地存储读取用户偏好
+const storedTheme = localStorage.getItem('theme') ||
+    (prefersDark ? 'dark' : 'light');
+
+// 初始应用主题
+document.documentElement.setAttribute('data-theme', storedTheme);
+
+// 暗黑模式切换函数
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+}
+
+// 暴露给设置按钮
+window.toggleTheme = toggleTheme;
+
+
 //搜索功能
 document.getElementById('searchForm').addEventListener('submit', function (e) {
     e.preventDefault();
@@ -8,11 +30,3 @@ document.getElementById('searchForm').addEventListener('submit', function (e) {
     }
 });
 
-// 检测系统主题-适配暗黑模式
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-function setTheme() {
-    document.documentElement.setAttribute('data-bs-theme',
-        prefersDark.matches ? 'dark' : 'light');
-}
-prefersDark.addEventListener('change', setTheme);
-setTheme(); // 初始化
