@@ -94,17 +94,17 @@
   </div>
 
   <!-- ================= 主内容区域 ================= -->
-  <!-- ================= 视图切换导航 ================= -->
-  <div class="container mt-1">
+  <!-- ===== 视图切换导航 ===== -->
+  <div class="mt-1" id="viewTabContainer" style="height: 50px;">
     <ul class="nav nav-tabs justify-content-center" id="viewTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="widget-tab" data-bs-toggle="tab" data-bs-target="#widgetContainer"
+        <button class="nav-link active " id="widget-tab" data-bs-toggle="tab" data-bs-target="#widgetContainer"
           type="button" role="tab">
           组件视图
         </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="link-tab" data-bs-toggle="tab" data-bs-target="#linkContainer" type="button"
+        <button class="nav-link " id="link-tab" data-bs-toggle="tab" data-bs-target="#linkContainer" type="button"
           role="tab">
           链接视图
         </button>
@@ -112,10 +112,10 @@
     </ul>
   </div>
 
-  <!-- ================= 修改后的主内容区域 ================= -->
-  <div class="container mt-2 tab-content" id="mainContent">
+  <!-- ===== 修改后的主内容区域 ===== -->
+  <div class="mt-2 tab-content" id="mainContent">
     <!-- 组件视图 -->
-    <div class="tab-pane fade show active row g-4 row-cols-2 row-cols-md-3 row-cols-lg-4" id="widgetContainer"
+    <div class="tab-pane fade mt-2 show active row g-4 row-cols-2 row-cols-md-3 row-cols-lg-4" id="widgetContainer"
       role="tabpanel">
       <!-- 时钟组件 -->
       <div class="col">
@@ -134,7 +134,7 @@
 
 
     <!-- 现有链接视图 (保持原样) -->
-    <div class="tab-pane fade" id="linkContainer" role="tabpanel">
+    <div class="tab-pane fade mt-2" id="linkContainer" role="tabpanel">
       <div id="link-container" class="tab-content row g-4 row-cols-2 row-cols-md-3 row-cols-lg-4">
         <!-- 动态生成tab-pane -->
       </div>

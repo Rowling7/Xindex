@@ -77,15 +77,6 @@ body {
     object-fit: contain;
 }
 
-/*主内容区域*/
-#mainContent {
-    width: 80vw; 
-    max-width: none; /* 移除Bootstrap默认的最大宽度限制 */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
 /*组件*/
 .widget-card {
     border-radius: 10px;
@@ -97,12 +88,8 @@ body {
     transform: translateY(-5px);
 }
 
-#linkContainer {
-    margin: 6px auto !important;
-}
-
 /* 确保内容区域可以滚动 */
-.container {
+#mainContent {
     max-height: 100vh;
     overflow-y: auto;
 }
@@ -120,12 +107,12 @@ a.col {
 }
 
 /* 卡片容器 */
-.grid-layout {
+.grid-layout{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: 1rem;
     width: 100%;
-    max-width: calc(100px * 10 + 1rem * 9);
+    max-width: calc(100px * 14 + 1rem * 9);
     /* 10列x100px + 9个间隙x1rem */
     margin: 0 auto;
 }
