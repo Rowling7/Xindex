@@ -60,6 +60,7 @@ body {
     box-sizing: border-box;
     flex-shrink: 0;
 }
+
 .btn-search {
     width: 40px;
     position: relative;
@@ -70,11 +71,44 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 /* 搜索图标尺寸 */
 .btn-search img {
     width: 20px;
     height: 20px;
     object-fit: contain;
+}
+
+/* 搜索表单整体效果 */
+#searchForm {
+    border: 1px solid #dee2e6;
+    transition: box-shadow 0.3s ease;
+}
+
+#searchForm:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* 搜索引擎选择框 */
+#engineSelect {
+    min-width: 120px;
+    cursor: pointer;
+}
+
+#engineSelect:hover {
+    background-color: #e9ecef !important;
+}
+
+/* 搜索按钮悬停效果 */
+.btn-search:hover {
+    background-color: #0b5ed7;
+    transform: scale(1.02);
+}
+
+/* 输入框聚焦效果 */
+#searchForm input:focus {
+    border-color: #86b7fe;
+    box-shadow: none;
 }
 
 /*组件*/
@@ -107,7 +141,7 @@ a.col {
 }
 
 /* 卡片容器 */
-.grid-layout{
+.grid-layout {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: 1rem;

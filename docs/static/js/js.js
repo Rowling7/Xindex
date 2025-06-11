@@ -30,3 +30,28 @@ document.getElementById('searchForm').addEventListener('submit', function (e) {
     }
 });
 
+
+
+// 监听 Tab 切换事件
+    /*
+    *设置切换至widgetContainer时 隐藏footer,切换至linkContainer时显示footer
+    */
+document.addEventListener('DOMContentLoaded', function () {
+    const viewTab = document.getElementById('viewTab');
+    const footerContainer = document.getElementById('footerContainer');
+
+    viewTab.addEventListener('shown.bs.tab', function (event) {
+        // 判断当前激活的是哪个 Tab
+        if (event.target.id === 'widget-tab') {
+            footerContainer.classList.add('d-none'); // 隐藏 footer
+        } else if (event.target.id === 'link-tab') {
+            footerContainer.classList.remove('d-none'); // 显示 footer
+        }
+    });
+
+    // 初始化状态检查
+    const activeTab = document.querySelector('#viewTab .nav-link.active');
+    if (activeTab && activeTab.id === 'widget-tab') {
+        footerContainer.classList.add('d-none');
+    }
+});

@@ -7,6 +7,7 @@
   <title>Pitahaya Guide</title>
   <link rel="stylesheet" href="static/css/bootstrap.css">
   <script src="static/js/bootstrap.bundle.js" defer></script>
+  <script src=" static/js/widgets.js" defer></script>
   <link rel="stylesheet" href="static/css/styles.css">
   <script src="static/js/js.js" defer></script>
   <script src="static/js/loadData.js" defer></script>
@@ -69,8 +70,9 @@
   <!-- ================= 主搜索区域 ================= -->
   <div class="container d-flex align-items-center justify-content-center mt-0" id="webSearchContainer">
     <div class="col-md-8">
-      <form id="searchForm" class="input-group">
-        <select class="form-select flex-grow-0 w-auto" id="engineSelect" aria-label="搜索引擎选择">
+      <form id="searchForm" class="input-group shadow-sm rounded-3">
+        <select class="form-select flex-grow-0 w-auto border-end-0" id="engineSelect" aria-label="搜索引擎选择"
+          style="background-color: #f8f9fa; transition: all 0.3s;">
           <option value="https://www.bing.com/search?q=">Bing</option>
           <option value="https://www.baidu.com/s?wd=">百度</option>
           <option value="https://xiaoyi.huawei.com/?q=">小艺</option>
@@ -83,11 +85,12 @@
           <option value="https://www.douyin.com/root/search/">抖音</option>
           <option value="https://search.bilibili.com/video?keyword=">B站</option>
         </select>
-        <input type="text" class="form-control" placeholder="Type Something To Search ..." aria-label="搜索内容" name="q"
-          required>
-        <button type="submit" class="btn btn-primary btn-search">
-          <img src="static/ico/search.png" alt="搜索图标">
-          <span class="visually-hidden">搜索</span>
+        <input type="text" class="form-control border-start-0 border-end-0 px-3"
+          placeholder="Type Something To Search ..." aria-label="搜索内容" name="q" required
+          style="height: 46px; font-size: 1rem;">
+        <button type="submit" class="btn btn-primary btn-search d-flex align-items-center px-3"
+          style="border-radius: 0 0.375rem 0.375rem 0; transition: all 0.3s;">
+          <img src="static/ico/search.png" alt="搜索图标" width="20">
         </button>
       </form>
     </div>
@@ -119,15 +122,11 @@
       role="tabpanel">
       <!-- 时钟组件 -->
       <div class="col">
-        <div class="card widget-card h-100">
-          <div class="card-body text-center" id="clockContainer"></div>
-        </div>
+        <div class="card-body text-center" id="clockContainer"></div>
       </div>
-      <!-- 天气组件 -->
+      <!-- 社畜组件 -->
       <div class="col">
-        <div class="card widget-card h-100">
-          <div class="card-body" id="weatherContainer"></div>
-        </div>
+        <div class="card-body" id="workTimeContainer"></div>
       </div>
       <!-- 其他组件... -->
     </div>
@@ -153,5 +152,20 @@
   </footer>
 
 </body>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // 初始化时钟组件
+    new ClockWidget({
+      containerId: 'clockContainer',
+      use24HourFormat: true,
+      highlightColor: "#9c27b0"
+    });
+    // 初始化社畜倒计时
+    new WorkTimeWidget({
+      containerId: 'workTimeContainer'
+    });
+    // 其他组件初始化...
+  });
+</script>
 
 </html>
