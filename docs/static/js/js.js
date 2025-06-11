@@ -34,8 +34,8 @@ document.getElementById('searchForm').addEventListener('submit', function (e) {
 
 // 监听 Tab 切换事件
     /*
-    *设置切换至widgetContainer时 隐藏footer,切换至linkContainer时显示footer
-    */
+        *设置切换至widgetContainer时 隐藏footer,切换至linkContainer时显示footer
+        */
 document.addEventListener('DOMContentLoaded', function () {
     const viewTab = document.getElementById('viewTab');
     const footerContainer = document.getElementById('footerContainer');
